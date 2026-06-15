@@ -1,0 +1,64 @@
+#!/bin/sh
+
+#
+# Gradle start up script for UN*X
+#
+
+APP_NAME="Gradle"
+APP_BASE_NAME=`basename "$0"`
+
+# Determine the Java command to use to start the JVM.
+if [ -n "$JAVA_HOME" ] ; then
+    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
+        JAVACMD="$JAVA_HOME/jre/sh/java"
+    else
+        JAVACMD="$JAVA_HOME/bin/java"
+    fi
+    if [ ! -x "$JAVACMD" ] ; then
+        die "ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME"
+    fi
+else
+    JAVACMD="java"
+    which java >/dev/null 2>&1 || die "ERROR: JAVA_HOME is not set and no 'java' command could be found."
+fi
+
+# Determine the GRADLE_USER_HOME.
+GRADLE_USER_HOME="${GRADLE_USER_HOME:-$HOME/.gradle}"
+
+# Resolve GRADLE_HOME or download wrapper if needed.
+WRAPPER_PROPERTIES="$( cd "$(dirname "$0")" && pwd )/gradle/wrapper/gradle-wrapper.properties"
+if [ ! -f "$WRAPPER_PROPERTIES" ]; then
+    echo "Gradle wrapper properties not found: $WRAPPER_PROPERTIES"
+    exit 1
+fi
+
+DISTRIBUTION_URL=$(grep distributionUrl "$WRAPPER_PROPERTIES" | cut -d'=' -f2- | tr -d '\r' | sed 's/\\//g')
+DISTRIBUTION_BASE=$(grep distributionBase "$WRAPPER_PROPERTIES" | cut -d'=' -f2 | tr -d '\r')
+DISTRIBUTION_PATH=$(grep distributionPath "$WRAPPER_PROPERTIES" | cut -d'=' -f2 | tr -d '\r')
+
+if [ "$DISTRIBUTION_BASE" = "GRADLE_USER_HOME" ]; then
+    DISTRIBUTION_BASE="$GRADLE_USER_HOME"
+fi
+
+GRADLE_HOME="$DISTRIBUTION_BASE/$DISTRIBUTION_PATH"
+
+# Find the gradle binary
+GRADLE_VERSION=$(echo "$DISTRIBUTION_URL" | sed 's/.*gradle-\([0-9.]*\)-.*/\1/')
+GRADLE_DIST_DIR="$GRADLE_HOME/gradle-$GRADLE_VERSION"
+
+if [ ! -d "$GRADLE_DIST_DIR" ]; then
+    mkdir -p "$GRADLE_HOME"
+    TEMP_FILE="$GRADLE_HOME/gradle-dist.zip"
+    echo "Downloading Gradle $GRADLE_VERSION..."
+    curl -L "$DISTRIBUTION_URL" -o "$TEMP_FILE" || { echo "Failed to download Gradle"; exit 1; }
+    unzip -q "$TEMP_FILE" -d "$GRADLE_HOME" || { echo "Failed to unzip Gradle"; exit 1; }
+    rm "$TEMP_FILE"
+fi
+
+GRADLE_BIN="$GRADLE_DIST_DIR/bin/gradle"
+if [ ! -f "$GRADLE_BIN" ]; then
+    echo "Gradle binary not found: $GRADLE_BIN"
+    exit 1
+fi
+
+exec "$GRADLE_BIN" "$@"

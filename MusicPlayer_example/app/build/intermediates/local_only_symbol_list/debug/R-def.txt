@@ -1,0 +1,32 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color purple_200
+color purple_500
+color purple_700
+color teal_200
+color teal_700
+color white
+drawable album_art_bg
+drawable ic_music_note
+drawable play_button_bg
+id btn_next
+id btn_play_pause
+id btn_previous
+id iv_album_art
+id recycler_view
+id seek_bar
+id tv_artist
+id tv_current_time
+id tv_empty
+id tv_song_artist
+id tv_song_duration
+id tv_song_title
+id tv_title
+id tv_total_time
+layout activity_main
+layout activity_player
+layout item_song
+string app_name
+string no_music_found
+style Theme.MusicPlayer

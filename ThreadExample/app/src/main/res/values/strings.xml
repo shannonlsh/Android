@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Thread Examples</string>
+    <string name="main_thread_title">Main (UI) Thread</string>
+    <string name="background_thread_title">Background Thread</string>
+    <string name="thread_safety_title">Thread Safety</string>
+</resources>

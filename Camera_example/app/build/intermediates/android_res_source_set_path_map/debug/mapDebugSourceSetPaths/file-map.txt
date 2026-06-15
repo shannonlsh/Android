@@ -1,0 +1,8 @@
+com.example.camera_example.app-pngs-0 /Users/Darryl/AndroidStudioProjects/Camera_example/app/build/generated/res/pngs/debug
+com.example.camera_example.app-updated_navigation_xml-1 /Users/Darryl/AndroidStudioProjects/Camera_example/app/build/generated/updated_navigation_xml/debug
+com.example.camera_example.app-packageDebugResources-2 /Users/Darryl/AndroidStudioProjects/Camera_example/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.example.camera_example.app-packageDebugResources-3 /Users/Darryl/AndroidStudioProjects/Camera_example/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.example.camera_example.app-debug-4 /Users/Darryl/AndroidStudioProjects/Camera_example/app/build/intermediates/merged_res/debug/mergeDebugResources
+com.example.camera_example.app-debug-5 /Users/Darryl/AndroidStudioProjects/Camera_example/app/src/debug/res
+com.example.camera_example.app-main-6 /Users/Darryl/AndroidStudioProjects/Camera_example/app/src/main/res
+gradleHome-0 /Users/Darryl/.gradle

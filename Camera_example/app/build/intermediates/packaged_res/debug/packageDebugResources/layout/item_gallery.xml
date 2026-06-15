@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="2dp">
+
+    <ImageView
+        android:id="@+id/imgMedia"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="false" />
+
+    <!-- Video indicator overlay -->
+    <ImageView
+        android:id="@+id/imgVideoIcon"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/ic_play_circle"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <!-- Duration badge -->
+    <TextView
+        android:id="@+id/tvDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        android:padding="3dp"
+        android:background="#88000000"
+        android:layout_gravity="bottom|end"
+        android:visibility="gone" />
+
+</FrameLayout>
